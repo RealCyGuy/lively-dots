@@ -10,6 +10,7 @@
     <canvas id="canvas" width="100" height="100"></canvas>
     <script src="./script.js"></script>
     <script>
+      var theme;
       themes = [
         ["#a8e6cf", "#dcedc1", "#ffd3b6", "#ffaaa5", "#ff8b94"],
         ["#410b13", "#cd5d67", "#ba1f33", "#421820", "#91171f"],
@@ -20,6 +21,7 @@
         if (name == "backgroundColor") {
           canvas.style.backgroundColor = val;
         } else if (name == "theme") {
+          theme = val;
           if (val == 0) {
             colors = customColors;
           } else {
@@ -28,6 +30,9 @@
           placeDots();
         } else if (name == "customColors") {
           customColors = val.split(",");
+          if (theme == 0) {
+            colors = customColors;
+          }
           placeDots();
         }
       }
